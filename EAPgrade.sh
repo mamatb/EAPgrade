@@ -28,7 +28,7 @@ mv '/opt/eaphammer.sh' '/opt/eaphammer.service' '/opt/eaphammer/'
 cd '/opt/eaphammer/'
 
 # eaphammer installation
-echo 'INFO - updating, installing dependencies and generating DH parameters. This is going to take a long time, you can check the progress with "tail -f /tmp/EAPgrade.log" if you wish :)'
+echo 'INFO - updating, installing dependencies and generating DH parameters. This is going to take a while, you can check the progress with "tail -f /tmp/EAPgrade.log" if you wish :)'
 echo -e 'y\n' | ./kali-setup &> '/tmp/EAPgrade.log'
 
 # eaphammer.service setup
@@ -38,7 +38,7 @@ systemctl disable 'wpa_supplicant.service' &> '/dev/null'
 cp '/etc/dhcpcd.conf' '/etc/dhcpcd.conf.backup'
 echo 'nohook wpa_supplicant' >> '/etc/dhcpcd.conf'
 
-echo 'INFO - enabling eaphammer.service and ssh.service'
+echo 'INFO - enabling eaphammer.service and ssh.service to administrate your Raspbian without needing to plug in keyboard and display'
 cp '/opt/eaphammer/eaphammer.service' '/lib/systemd/system/eaphammer.service'
 systemctl enable 'ssh.service' &> '/dev/null'
 systemctl enable 'eaphammer.service' &> '/dev/null'
@@ -56,7 +56,7 @@ echo 'INFO - generating fake TLS certificate to use with eaphammer'
 chmod +x '/opt/eaphammer/eaphammer.sh'
 echo 'INFO - done! The WPA/WPA2-MGT fake AP attack should launch automatically after booting now, raw logs will be located at "/opt/eaphammer/logs/hostapd-eaphammer.raw". Next steps:'
 echo '       Modify user and password to access the fake AP network at "/opt/eaphammer/db/phase2.accounts"'
-echo '       Modify the ESSID at "/opt/eaphammer/eaphammer.sh" so that it matches your target'
+echo '       Modify the ESSID at "/opt/eaphammer/eaphammer.sh" so that it matches your target network'
 echo '       Delete "/opt/eaphammer/certs/server/*", "/opt/eaphammer/certs/ca/*" and "/opt/eaphammer/certs/active/*"; and generate your own targeted certs by "cd /opt/eaphammer/ && ./eaphammer --cert-wizard"'
 
 exit 0
