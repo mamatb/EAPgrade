@@ -1,0 +1,10 @@
+[Unit]
+Description=automatic eaphammer launch
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/eaphammer/eaphammer.sh
+
+[Install]
+WantedBy=multi-user.target
