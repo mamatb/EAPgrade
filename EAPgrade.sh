@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+EAPgrade_dir="$(realpath $(dirname ${0}))"
+
 # permissions check
 if [ "${USER}" != 'root' ]
 then
@@ -27,7 +29,7 @@ cd '/opt/eaphammer/'
 
 # file movement
 echo 'INFO - moving files to "/opt/eaphammer"'
-cp "$(realpath $(dirname ${0}))/eaphammer.sh" "$(realpath $(dirname ${0}))/eaphammer.service" '/opt/eaphammer/'
+cp "${EAPgrade_dir}/eaphammer.sh" "${EAPgrade_dir}/eaphammer.service" '/opt/eaphammer/'
 
 # eaphammer installation
 echo 'INFO - updating, installing dependencies and generating DH parameters. This is going to take a while, you can check the progress with "tail -f /tmp/EAPgrade.log" if you wish :)'
