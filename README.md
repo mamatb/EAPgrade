@@ -23,6 +23,7 @@ Installation
 ------------
 
     git clone https://gitlab.com/mamatb/eapgrade.git
+    chmod +x ./eapgrade/EAPgrade.sh
     ./eapgrade/EAPgrade.sh
 
 Usage
