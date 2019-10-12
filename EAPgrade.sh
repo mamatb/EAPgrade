@@ -21,11 +21,13 @@ fi
 
 # eaphammer git clone
 echo 'INFO - cloning eaphammer to "/opt/eaphammer/"'
-cp 'eaphammer.sh' 'eaphammer.service' '/opt/'
 cd '/opt/'
 git clone 'https://github.com/s0lst1c3/eaphammer.git' &> '/dev/null'
-mv '/opt/eaphammer.sh' '/opt/eaphammer.service' '/opt/eaphammer/'
 cd '/opt/eaphammer/'
+
+# file movement
+echo 'INFO - moving files to "/opt/eaphammer"'
+cp "$(dirname ${0})/eaphammer.sh" "$(dirname ${0})/eaphammer.service" '/opt/eaphammer/'
 
 # eaphammer installation
 echo 'INFO - updating, installing dependencies and generating DH parameters. This is going to take a while, you can check the progress with "tail -f /tmp/EAPgrade.log" if you wish :)'
