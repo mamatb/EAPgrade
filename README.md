@@ -10,7 +10,7 @@ Bear in mind that you need a WiFi card that supports Master mode for this attack
 Why?
 ----
 
-As I struggled a bit while setting up my Raspberry Pi + battery WiFi hacking kit for WPA/WPA2-MGT, especially until finding out that my DHCP client daemon was launching `wpa_supplicant.service` unless `nohook wpa_supplicant` was specified, I thought of easing this process up to anyone interested in doing the same.
+As I struggled a bit while setting up my Raspberry Pi + battery WiFi hacking kit for WPA/WPA2-MGT, especially before finding out that my DHCP client daemon was launching `wpa_supplicant.service` unless `nohook wpa_supplicant` was specified, I thought of easing this process up to anyone interested in doing the same.
 
 Why EAPHammer?
 --------------
