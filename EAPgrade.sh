@@ -34,7 +34,7 @@ cp "${EAPgrade_dir}/eaphammer.sh" "${EAPgrade_dir}/eaphammer.service" "${EAPHamm
 
 # EAPHammer installation
 echo 'INFO - updating, installing dependencies and generating DH parameters. This is going to take a while, you can check the progress with "tail -f /tmp/EAPgrade.log" if you wish :)'
-echo -e 'y\n' | ./kali-setup &> '/tmp/EAPgrade.log'
+echo -e 'y\ny' | ./kali-setup &> '/tmp/EAPgrade.log'
 
 # eaphammer.service setup
 echo 'INFO - disabling wpa_supplicant.service and dnsmasq.service so that they don'"'"'t interfere with eaphammer.service'
