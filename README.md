@@ -5,7 +5,7 @@ What?
 
 EAPgrade is a simple bash script that upgrades your fresh Raspbian installation so that it launches WPA/WPA2-MGT fake AP attacks automatically after booting. In order to do so, it makes use of Gabriel Ryan's EAPHammer as a service. It also provides SSH access to administrate your Raspbian without needing to plug in keyboard and display, and disables a couple of services so that they don't interfere with the execution of EAPHammer.
 
-Bear in mind that none of this attack will work if you don't have a WiFi card that supports Master mode.
+Bear in mind that this attack won't work if you don't have a WiFi card that supports Master mode.
 
 Why?
 ----
