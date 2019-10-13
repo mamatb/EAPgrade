@@ -49,7 +49,7 @@ My hardware
 Disclaimer
 ----------
 
-No "Academic Purposes Only" bullshit in here, however please note that launching fake APs can be pretty noisy in certain environments, specially if using [Karma](https://github.com/s0lst1c3/eaphammer/wiki/XI.-Using-Karma). So hack responsibly or something like that.
+No "Academic Purposes Only" bullshit in here, however please note that launching fake APs can be pretty noisy in certain environments, especially if using [Karma](https://github.com/s0lst1c3/eaphammer/wiki/XI.-Using-Karma). So hack responsibly or something like that.
 
 Acknowledgements
 ----------------
