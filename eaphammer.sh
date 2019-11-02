@@ -16,4 +16,4 @@ dnsmasq --interface="${INTERFACE}" --except-interface='lo' --bind-interfaces --d
 
 # eaphammer launch
 cd '/opt/eaphammer/'
-./eaphammer -i "${INTERFACE}" --channel '1' --auth 'wpa-eap' --creds --hw-mode 'g' --essid 'EAPgrade' 2>&1 >> '/opt/eaphammer/logs/hostapd-eaphammer.raw'
+./eaphammer --interface "${INTERFACE}" --channel '1' --auth 'wpa-eap' --creds --hw-mode 'g' --essid 'EAPgrade' 2>&1 >> '/opt/eaphammer/logs/hostapd-eaphammer.raw'
