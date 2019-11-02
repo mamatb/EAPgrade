@@ -42,7 +42,7 @@ My hardware
 -----------
 
 *  Raspberry Pi 4. Way overkill for this setup, no need to have 4 cores to run fake APs.
-*  Xiaomi Mi Power Bank 2S 10000Mah. Portable battery with enough juice to power up the Raspberry Pi for ~8 hours.
+*  Xiaomi Mi Power Bank 2S 10000mAh. Portable battery with enough juice to power up the Raspberry Pi for ~8 hours.
 *  USB 802.11n WiFi card with Rt3070 chipset. Although the wireless card included in the Raspberry Pi 4 supports Master mode, extra range it's a nice to have.
 *  [Termux](https://termux.com/) Android app to check the attack progress through SSH using a smartphone.
 
