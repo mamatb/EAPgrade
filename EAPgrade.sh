@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# TODO
+#
+# use colored output
+
 EAPgrade_dir="$(realpath $(dirname ${0}))"
 EAPHammer_dir='/opt/eaphammer'
 
@@ -30,7 +34,7 @@ cd "${EAPHammer_dir}/"
 
 # file movement
 echo 'INFO - moving files to "'"${EAPHammer_dir}/"'"'
-cp "${EAPgrade_dir}/eaphammer.sh" "${EAPgrade_dir}/eaphammer.service" "${EAPHammer_dir}/"
+cp --force "${EAPgrade_dir}/eaphammer.sh" "${EAPgrade_dir}/eaphammer.service" "${EAPHammer_dir}/"
 
 # EAPHammer installation
 echo 'INFO - updating, installing dependencies and generating DH parameters. This is going to take a while, you can check the progress with "tail -f /tmp/EAPgrade.log" if you wish :)'
@@ -40,17 +44,17 @@ echo -e 'y\ny' | ./kali-setup &> '/tmp/EAPgrade.log'
 echo 'INFO - disabling wpa_supplicant.service and dnsmasq.service so that they don'"'"'t interfere with eaphammer.service'
 systemctl disable 'dnsmasq.service' &> '/dev/null'
 systemctl disable 'wpa_supplicant.service' &> '/dev/null'
-cp '/etc/dhcpcd.conf' '/etc/dhcpcd.conf.backup'
+cp --force '/etc/dhcpcd.conf' '/etc/dhcpcd.conf.backup'
 echo 'nohook wpa_supplicant' >> '/etc/dhcpcd.conf'
 
 echo 'INFO - enabling eaphammer.service and ssh.service to administrate your Raspbian without needing to plug in keyboard and display'
-cp "${EAPHammer_dir}/eaphammer.service" '/lib/systemd/system/eaphammer.service'
+cp --force "${EAPHammer_dir}/eaphammer.service" '/lib/systemd/system/eaphammer.service'
 systemctl enable 'ssh.service' &> '/dev/null'
 systemctl enable 'eaphammer.service' &> '/dev/null'
 
 # EAPHammer users configuration
 echo 'INFO - setting up user "EAPgrade" to access the fake AP network with password "changeme"'
-cp "${EAPHammer_dir}/db/phase2.accounts" "${EAPHammer_dir}/db/phase2.accounts.backup"
+cp --force "${EAPHammer_dir}/db/phase2.accounts" "${EAPHammer_dir}/db/phase2.accounts.backup"
 echo -e '"EAPgrade"\tGTC\t"changeme"\t[2]' > "${EAPHammer_dir}/db/phase2.accounts"
 
 # EAPHammer certs generation
