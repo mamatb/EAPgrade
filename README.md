@@ -36,7 +36,7 @@ As the script says upon installation:
            Modify the ESSID at "/opt/eaphammer/eaphammer.sh" so that it matches your target network
            Delete "/opt/eaphammer/certs/server/*", "/opt/eaphammer/certs/ca/*" and "/opt/eaphammer/certs/active/*"; and generate your own targeted certs by "cd /opt/eaphammer/ && ./eaphammer --cert-wizard"
 
-You can SSH your Raspbian at 10.0.0.1 after accessing your fake AP network using the credentials at `/opt/eaphammer/db/phase2.accounts`. Sometimes dnsmasq won't properly serve an IP address for whatever reason, using a static IP has worked for me in this cases.
+You can SSH your Raspbian at 10.0.0.1 after accessing your fake AP network using the credentials at `/opt/eaphammer/db/phase2.accounts`. Sometimes dnsmasq won't properly serve an IP address for whatever reason, using a static IP has worked for me in these cases.
 
 My hardware
 -----------
