@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# EAPgrade is a simple bash script that upgrades your fresh Raspbian installation so that it launches WPA/WPA2-MGT fake AP attacks automatically after booting
+# author - mamatb (t.me/m_amatb)
+# location - https://gitlab.com/mamatb/EAPgrade
+
 # TODO
 #
 # use colored output
