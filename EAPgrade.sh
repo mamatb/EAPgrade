@@ -31,13 +31,13 @@ else
 fi
 
 # EAPHammer git clone
-echo 'INFO - cloning EAPHammer to "'"${EAPHammer_dir}/"'"'
+echo 'INFO - cloning EAPHammer to "'"${EAPHammer_dir}"'/"'
 cd '/opt/'
 git clone 'https://github.com/s0lst1c3/eaphammer.git' &> '/dev/null'
 cd "${EAPHammer_dir}/"
 
 # file movement
-echo 'INFO - moving files to "'"${EAPHammer_dir}/"'"'
+echo 'INFO - moving files to "'"${EAPHammer_dir}"'/"'
 cp --force "${EAPgrade_dir}/eaphammer.sh" "${EAPgrade_dir}/eaphammer.service" "${EAPHammer_dir}/"
 
 # EAPHammer installation
@@ -67,9 +67,9 @@ echo 'INFO - generating fake TLS certificate to use with EAPHammer'
 
 # final steps
 chmod +x "${EAPHammer_dir}/eaphammer.sh"
-echo 'INFO - done! The WPA/WPA2-MGT fake AP attack should launch automatically after booting now, raw logs will be located at "'"${EAPHammer_dir}/"'logs/hostapd-eaphammer.raw". Next steps:'
-echo '       Modify user and password to access the fake AP network at "'"${EAPHammer_dir}/"'db/phase2.accounts"'
-echo '       Modify the ESSID at "'"${EAPHammer_dir}/"'eaphammer.sh" so that it matches your target network'
-echo '       Delete "'"${EAPHammer_dir}/"'certs/server/*", "'"${EAPHammer_dir}/"'certs/ca/*" and "'"${EAPHammer_dir}/"'certs/active/*"; and generate your own targeted certs by "cd '"${EAPHammer_dir}/"' && ./eaphammer --cert-wizard"'
+echo 'INFO - done! The WPA/WPA2-MGT fake AP attack should launch automatically after booting now, raw logs will be located at "'"${EAPHammer_dir}"'/logs/hostapd-eaphammer.raw". Next steps:'
+echo '       Modify user and password to access the fake AP network at "'"${EAPHammer_dir}"'/db/phase2.accounts"'
+echo '       Modify the ESSID at "'"${EAPHammer_dir}"'/eaphammer.sh" so that it matches your target network'
+echo '       Delete "'"${EAPHammer_dir}"'/certs/server/*", "'"${EAPHammer_dir}"'/certs/ca/*" and "'"${EAPHammer_dir}"'/certs/active/*"; and generate your own targeted certs by "'"${EAPHammer_dir}"'/eaphammer --cert-wizard"'
 
 exit 0
