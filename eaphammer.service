@@ -5,6 +5,8 @@ After=network.target
 [Service]
 Type=simple
 ExecStart=/opt/eaphammer/eaphammer.sh
+RestartSec=4
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
