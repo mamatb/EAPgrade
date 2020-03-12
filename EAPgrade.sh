@@ -8,7 +8,7 @@
 #
 # use colored output
 
-EAPgrade_dir="$(realpath $(dirname ${0}))"
+EAPgrade_dir="$(realpath "$(dirname "${0}")")"
 EAPHammer_dir='/opt/eaphammer'
 
 # permissions check
@@ -21,8 +21,7 @@ else
 fi
 
 # internet access check
-ping -c '1' 'github.com' &> '/dev/null'
-if [ "${?}" != '0' ]
+if ! ping -c '1' 'github.com' &> '/dev/null'
 then
 	echo 'ERROR - internet access needed in order to clone EAPHammer'
 	exit 1
