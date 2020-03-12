@@ -15,4 +15,4 @@ ifconfig "${INTERFACE}" '10.0.0.1' netmask '255.255.255.0' up
 dnsmasq --interface="${INTERFACE}" --except-interface='lo' --bind-interfaces --dhcp-range='10.0.0.2,10.0.0.16,12h'
 
 # eaphammer launch
-/opt/eaphammer/eaphammer --interface "${INTERFACE}" --channel '1' --auth 'wpa-eap' --creds --hw-mode 'g' --essid 'EAPgrade' 2>&1 >> '/opt/eaphammer/logs/hostapd-eaphammer.raw'
+/opt/eaphammer/eaphammer --interface "${INTERFACE}" --channel '1' --auth 'wpa-eap' --creds --hw-mode 'g' --essid 'EAPgrade' &>> '/opt/eaphammer/logs/hostapd-eaphammer.raw'
