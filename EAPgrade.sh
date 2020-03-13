@@ -14,7 +14,7 @@ EAPHammer_dir='/opt/eaphammer'
 # permissions check
 if [ "${USER}" != 'root' ]
 then
-	echo 'ERROR - root identity needed in order to deal with services'
+	echo 'ERROR - root identity needed in order to deal with services' >&2
 	exit 1
 else
 	echo 'INFO - root identity confirmed, proceeding'
@@ -23,7 +23,7 @@ fi
 # internet access check
 if ! ping -c '1' 'github.com' &> '/dev/null'
 then
-	echo 'ERROR - internet access needed in order to clone EAPHammer'
+	echo 'ERROR - internet access needed in order to clone EAPHammer' >&2
 	exit 1
 else
 	echo 'INFO - internet access confirmed, proceeding'
