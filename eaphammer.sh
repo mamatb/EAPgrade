@@ -6,6 +6,7 @@ if [ -d '/sys/class/net/wlan1/' ]
 then
 	INTERFACE='wlan1'
 fi
+readonly INTERFACE
 
 # static ip configuration
 ifconfig "${INTERFACE}" down
