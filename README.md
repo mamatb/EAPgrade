@@ -22,7 +22,7 @@ I'm aware of other tools such as [hostapd-mana](https://github.com/sensepost/hos
 Installation
 ------------
 
-    git clone 'https://gitlab.com/mamatb/eapgrade.git'
+    git clone 'https://github.com/mamatb/eapgrade.git'
     chmod +x './eapgrade/EAPgrade.sh'
     ./eapgrade/EAPgrade.sh
 
