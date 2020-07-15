@@ -5,12 +5,12 @@ What?
 
 EAPgrade is a simple bash script that upgrades your fresh Raspbian installation so that it launches WPA/WPA2-MGT fake AP attacks automatically after booting. In order to do so, it makes use of Gabriel Ryan's [EAPHammer](https://github.com/s0lst1c3/eaphammer) as a service. It also provides SSH access to administrate your Raspbian without needing to plug in keyboard and display, and disables a couple of services so that they don't interfere with the execution of EAPHammer.
 
-Bear in mind that you need a WiFi card that supports Master mode for this attack to work. Also there are chances that the attack won't work if your Raspbian services have been modified since installation.
+Bear in mind that you need a Wi-Fi card that supports Master mode for this attack to work. Also there are chances that the attack won't work if your Raspbian services have been modified since installation.
 
 Why?
 ----
 
-As I struggled a bit while setting up my Raspberry Pi + battery WiFi hacking kit for WPA/WPA2-MGT, especially before finding out that my DHCP client daemon was launching `wpa_supplicant.service` unless `nohook wpa_supplicant` was specified, I thought of easing this process up to anyone interested in doing the same.
+As I struggled a bit while setting up my Raspberry Pi + battery Wi-Fi hacking kit for WPA/WPA2-MGT, especially before finding out that my DHCP client daemon was launching `wpa_supplicant.service` unless `nohook wpa_supplicant` was specified, I thought of easing this process up to anyone interested in doing the same.
 
 Why EAPHammer?
 --------------
@@ -43,7 +43,7 @@ My hardware
 
 *  Raspberry Pi 4. Way overkill for this setup, no need to have 4 cores to run fake APs.
 *  Xiaomi Mi Power Bank 2S 10000mAh. Portable battery with enough juice to power up the Raspberry Pi for ~8 hours.
-*  USB 802.11n WiFi card with RT3070 chipset. Although the wireless card included in the Raspberry Pi 4 supports Master mode, extra range it's a nice to have.
+*  USB 802.11n Wi-Fi card with RT3070 chipset. Although the wireless card included in the Raspberry Pi 4 supports Master mode, extra range it's a nice to have.
 *  [Termux](https://termux.com/) Android app to check the attack progress through SSH using a smartphone.
 
 Disclaimer
@@ -56,4 +56,4 @@ Acknowledgements
 
 [Gabriel Ryan a.k.a. s0lst1c3](https://github.com/s0lst1c3) for his tool [EAPHammer](https://github.com/s0lst1c3/eaphammer).
 
-[OscarAkaElvis](https://github.com/OscarAkaElvis) for the ninja WiFi card recommendation. He also runs a wireless hacking suite called [airgeddon](https://github.com/v1s1t0r1sh3r3/airgeddon) that you should definitely check out if interested in WiFi hacking.
+[OscarAkaElvis](https://github.com/OscarAkaElvis) for the ninja Wi-Fi card recommendation. He also runs a wireless hacking suite called [airgeddon](https://github.com/v1s1t0r1sh3r3/airgeddon) that you should definitely check out if interested in Wi-Fi hacking.
