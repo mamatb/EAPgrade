@@ -1,0 +1,10 @@
+[Unit]
+Description=automatic eaphammer_watchdog launch
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/eaphammer/eaphammer_watchdog.sh
+
+[Install]
+WantedBy=multi-user.target
