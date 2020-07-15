@@ -20,10 +20,10 @@ else
 	echo 'INFO - root identity confirmed, proceeding' >&2
 fi
 
-# internet access check
-if ! ping -c '1' 'github.com' &> '/dev/null'
+# github access check
+if ! curl 'github.com' --max-time '4' &> '/dev/null'
 then
-	echo 'ERROR - internet access needed in order to clone EAPHammer' >&2
+	echo 'ERROR - internet access and name resolution needed in order to clone EAPHammer' >&2
 	exit 1
 else
 	echo 'INFO - internet access confirmed, proceeding' >&2
