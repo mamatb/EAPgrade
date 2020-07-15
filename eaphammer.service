@@ -1,6 +1,7 @@
 [Unit]
 Description=automatic eaphammer launch
 After=network.target
+Requires=eaphammer_watchdog.service
 
 [Service]
 Type=simple
