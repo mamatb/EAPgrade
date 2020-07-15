@@ -19,6 +19,8 @@ Ease of use and effectiveness, it's a great tool and one of the few that impleme
 
 I'm aware of other tools such as [hostapd-mana](https://github.com/sensepost/hostapd-mana) supporting more EAP types, but EAPHammer is my favourite so far. One problem I've experienced though is EAPHammer not logging all its activity to the default log file when disconnected from power instead of properly stopping the attack, that's why I'm redirecting stdout and stderr to `/opt/eaphammer/logs/hostapd-eaphammer.raw`.
 
+Also I've experienced some weird instability bugs after running the fake AP for a somewhat long period of time, so decided to add a watchdog service in charge of restarting the whole attack if certain errors are detected.
+
 Installation
 ------------
 
@@ -42,14 +44,14 @@ My hardware
 -----------
 
 *  Raspberry Pi 4. Way overkill for this setup, no need to have 4 cores to run fake APs.
-*  Xiaomi Mi Power Bank 2S 10000mAh. Portable battery with enough juice to power up the Raspberry Pi for ~8 hours.
+*  Xiaomi Mi Power Bank 2S 10000mAh. Portable battery with enough juice to power up the Raspberry Pi 4 for ~8 hours.
 *  USB 802.11n Wi-Fi card with RT3070 chipset. Although the wireless card included in the Raspberry Pi 4 supports Master mode, extra range it's a nice to have.
 *  [Termux](https://termux.com/) Android app to check the attack progress through SSH using a smartphone.
 
 Disclaimer
 ----------
 
-No "Academic Purposes Only" bullshit in here, however please note that launching fake APs can be pretty noisy in certain environments, especially if using [Karma](https://github.com/s0lst1c3/eaphammer/wiki/XI.-Using-Karma). So hack responsibly or something like that.
+No "Academic Purposes Only" bullshit in here, however please note that launching fake APs can be pretty noisy in certain environments, especially if using [KARMA/MANA](https://github.com/s0lst1c3/eaphammer/wiki/XI.-Using-Karma). So hack responsibly or something like that.
 
 Acknowledgements
 ----------------
