@@ -14,19 +14,19 @@ readonly EAPHAMMER_DIR='/opt/eaphammer'
 # permissions check
 if [ "${USER}" != 'root' ]
 then
-	echo 'ERROR - root identity needed in order to deal with services' >&2
-	exit 1
+    echo 'ERROR - root identity needed in order to deal with services' >&2
+    exit 1
 else
-	echo 'INFO - root identity confirmed, proceeding' >&2
+    echo 'INFO - root identity confirmed, proceeding' >&2
 fi
 
 # github access check
 if ! curl 'github.com' --max-time '4' &> '/dev/null'
 then
-	echo 'ERROR - internet access and name resolution needed in order to clone EAPHammer' >&2
-	exit 1
+    echo 'ERROR - internet access and name resolution needed in order to clone EAPHammer' >&2
+    exit 1
 else
-	echo 'INFO - internet access confirmed, proceeding' >&2
+    echo 'INFO - internet access confirmed, proceeding' >&2
 fi
 
 # EAPHammer git clone
