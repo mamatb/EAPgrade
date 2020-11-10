@@ -4,7 +4,7 @@
 INTERFACE='wlan0'
 if [ -d '/sys/class/net/wlan1/' ]
 then
-	INTERFACE='wlan1'
+    INTERFACE='wlan1'
 fi
 readonly INTERFACE
 
