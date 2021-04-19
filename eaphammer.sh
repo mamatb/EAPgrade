@@ -9,10 +9,10 @@ fi
 readonly INTERFACE
 
 # static ip configuration
-ip link set "${INTERFACE}" down
+ip link set dev "${INTERFACE}" down
 ip address flush dev "${INTERFACE}"
 ip address add '10.0.0.1/24' broadcast '+' dev "${INTERFACE}"
-ip link set "${INTERFACE}" up
+ip link set dev "${INTERFACE}" up
 
 # dnsmasq launch
 dnsmasq --interface="${INTERFACE}" --except-interface='lo' --bind-interfaces --dhcp-range='10.0.0.2,10.0.0.16,12h'
