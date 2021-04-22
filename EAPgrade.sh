@@ -46,21 +46,21 @@ echo -e 'y\ny' | ./raspbian-setup &> '/tmp/EAPgrade.log'
 
 # services setup
 echo 'INFO - disabling wpa_supplicant.service and dnsmasq.service so that they don'"'"'t interfere' >&2
-systemctl disable 'dnsmasq.service' &> '/dev/null'
-systemctl disable 'wpa_supplicant.service' &> '/dev/null'
+systemctl --quiet disable 'dnsmasq.service'
+systemctl --quiet disable 'wpa_supplicant.service'
 cp --force '/etc/dhcpcd.conf' '/etc/dhcpcd.conf.backup'
 echo 'nohook wpa_supplicant' >> '/etc/dhcpcd.conf'
 
 echo 'INFO - enabling eaphammer.service so that EAPHammer launches automatically after booting' >&2
 cp --force "${EAPHAMMER_DIR}/eaphammer.service" '/lib/systemd/system/eaphammer.service'
-systemctl enable 'eaphammer.service' &> '/dev/null'
+systemctl --quiet enable 'eaphammer.service'
 
 echo 'INFO - enabling eaphammer_watchdog.service in order to restart EAPHammer when unstable' >&2
 cp --force "${EAPHAMMER_DIR}/eaphammer_watchdog.service" '/lib/systemd/system/eaphammer_watchdog.service'
-systemctl enable 'eaphammer_watchdog.service' &> '/dev/null'
+systemctl --quiet enable 'eaphammer_watchdog.service'
 
 echo 'INFO - enabling ssh.service in order to administrate your Raspbian without needing to plug in keyboard and display' >&2
-systemctl enable 'ssh.service' &> '/dev/null'
+systemctl --quiet enable 'ssh.service'
 
 # EAPHammer users configuration
 echo 'INFO - setting up user "EAPgrade" to access the fake AP network with password "changeme"' >&2
