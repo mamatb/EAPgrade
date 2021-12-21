@@ -23,20 +23,20 @@ Also I've experienced some weird instability bugs after running the fake AP for 
 
 Installation
 ------------
-
-    git clone 'https://github.com/mamatb/eapgrade.git'
-    bash ./eapgrade/EAPgrade.sh
-
+```bash
+git clone 'https://github.com/mamatb/eapgrade.git'
+bash ./eapgrade/EAPgrade.sh
+```
 Usage
 -----
 
 As the script says upon installation:
-
-    INFO - done! The WPA/WPA2-MGT fake AP attack should launch automatically after booting now, raw logs will be located at "/opt/eaphammer/logs/hostapd-eaphammer.raw". Next steps:
-           Modify user and password to access the fake AP network at "/opt/eaphammer/db/phase2.accounts"
-           Modify the ESSID at "/opt/eaphammer/eaphammer.sh" so that it matches your target network
-           Delete "/opt/eaphammer/certs/server/*", "/opt/eaphammer/certs/ca/*" and "/opt/eaphammer/certs/active/*"; and generate your own targeted certs by "python3 /opt/eaphammer/eaphammer --cert-wizard" (may need to install some Python 3 modules)
-
+```
+INFO - done! The WPA/WPA2-MGT fake AP attack should launch automatically after booting now, raw logs will be located at "/opt/eaphammer/logs/hostapd-eaphammer.raw". Next steps:
+    Modify user and password to access the fake AP network at "/opt/eaphammer/db/phase2.accounts"
+    Modify the ESSID at "/opt/eaphammer/eaphammer.sh" so that it matches your target network
+    Delete "/opt/eaphammer/certs/server/*", "/opt/eaphammer/certs/ca/*" and "/opt/eaphammer/certs/active/*"; and generate your own targeted certs by "python3 /opt/eaphammer/eaphammer --cert-wizard" (may need to install some Python 3 modules)
+```
 You can SSH your Raspbian at 10.0.0.1 after accessing your fake AP network using the credentials at `/opt/eaphammer/db/phase2.accounts`. Sometimes dnsmasq won't properly serve an IP address for whatever reason, using a static IP has worked for me in these cases.
 
 My hardware
