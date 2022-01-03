@@ -9,7 +9,7 @@
 #
 # use colored output
 
-readonly EAPGRADE_DIR="$(realpath "$(dirname "${0}")")"
+readonly EAPGRADE_DIR="$(dirname "${0}" | xargs realpath)"
 readonly EAPHAMMER_DIR='/opt/eaphammer'
 
 # permissions check
