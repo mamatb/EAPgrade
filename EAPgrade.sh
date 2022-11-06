@@ -13,7 +13,7 @@ readonly EAPGRADE_DIR="$(dirname "${0}" | xargs --delimiter='\n' realpath)"
 readonly EAPHAMMER_DIR='/opt/eaphammer'
 
 # permissions check
-if [ "${USER}" != 'root' ]
+if [ "${UID}" != '0' ]
 then
     echo 'ERROR - root identity needed in order to deal with services' >&2
     exit 1
