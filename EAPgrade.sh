@@ -22,12 +22,20 @@ else
 fi
 
 # github access check
-if ! curl 'github.com' --max-time '4' &> '/dev/null'
+if ! curl 'https://github.com' --max-time '4' &> '/dev/null'
 then
     echo 'ERROR - internet access and name resolution needed in order to clone EAPHammer' >&2
     exit 1
 else
     echo 'INFO - internet access confirmed, proceeding' >&2
+fi
+
+# git installation check
+if ! command -v 'git' &> '/dev/null'
+then
+    echo 'ERROR - you need to have git installed in order to use "'"${0}"'"' >&2
+    echo 'INFO - installation in Debian-based distros: sudo apt install git' >&2
+    exit 1
 fi
 
 # EAPHammer git clone
