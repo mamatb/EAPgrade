@@ -8,6 +8,7 @@
 # TODO
 #
 # use colored output
+# s/raspbian/raspberry pi os/
 # grep interface names instead of assuming 'wlan0' and 'wlan1'
 
 readonly EAPGRADE_DIR="$(dirname "${0}" | xargs --delimiter='\n' realpath)"
