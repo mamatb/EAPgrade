@@ -8,6 +8,7 @@
 # TODO
 #
 # use colored output
+# update hardware section
 # s/raspbian/raspberry pi os/
 # grep interface names instead of assuming 'wlan0' and 'wlan1'
 
