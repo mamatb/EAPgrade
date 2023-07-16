@@ -11,6 +11,7 @@
 # update hardware section
 # s/raspbian/raspberry pi os/
 # grep interface names instead of assuming 'wlan0' and 'wlan1'
+# make use of 5ghz and channel bonding
 
 readonly EAPGRADE_DIR="$(dirname "${0}" | xargs --delimiter='\n' realpath)"
 readonly EAPHAMMER_DIR='/opt/eaphammer'
