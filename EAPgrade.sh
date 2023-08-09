@@ -36,7 +36,7 @@ fi
 # git installation check
 if ! command -v 'git' &> '/dev/null'
 then
-    echo 'ERROR - you need to have git installed in order to use "'"${0}"'"' >&2
+    echo 'ERROR - you need to have git installed in order to use EAPgrade.sh' >&2
     echo 'INFO - installation in Debian-based distros: sudo apt install git' >&2
     exit 1
 fi
