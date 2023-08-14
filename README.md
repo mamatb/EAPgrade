@@ -37,7 +37,7 @@ bash './EAPgrade/EAPgrade.sh'
 
 As the script says upon installation:
 ```
-INFO - done! The WPA/WPA2-MGT fake AP attack should launch automatically after booting now, raw logs will be located at "/opt/eaphammer/logs/hostapd-eaphammer.raw". Next steps:
+INFO - done! Now the WPA/WPA2-MGT fake AP attack should launch automatically after booting, raw logs will be located at "/opt/eaphammer/logs/hostapd-eaphammer.raw". Next steps:
     Modify user and password to access the fake AP network at "/opt/eaphammer/db/phase2.accounts"
     Modify the ESSID at "/opt/eaphammer/eaphammer.sh" so that it matches your target network
     Delete "/opt/eaphammer/certs/server/*", "/opt/eaphammer/certs/ca/*" and "/opt/eaphammer/certs/active/*"; and generate your own targeted certs by "python3 /opt/eaphammer/eaphammer --cert-wizard" (may need to install some Python 3 modules)
