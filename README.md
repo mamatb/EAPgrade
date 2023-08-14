@@ -48,7 +48,7 @@ You can SSH your Raspbian at 10.0.0.1 after accessing your fake AP network using
 
 *  Raspberry Pi 4 model B. Way overkill for this setup, no need to have 4 cores to run fake APs.
 *  Xiaomi Mi Power Bank 2S 10000mAh. Portable battery with enough juice to power up the Raspberry Pi 4 for ~8 hours.
-*  USB 802.11n Wi-Fi card with RT3070 chipset. Although the wireless card included in the Raspberry Pi 4 supports Master mode, extra range it's a nice to have.
+*  USB 802.11n Wi-Fi card with RT3070 chipset. Although the Wi-Fi card included in the Raspberry Pi 4 supports Master mode, extra range it's a nice to have.
 *  [Termux](https://termux.com/) Android app to check the attack progress through SSH using a smartphone.
 
 ## Disclaimer <a name="disclaimer" />
@@ -58,4 +58,4 @@ No "Academic Purposes Only" bullshit in here, however please note that launching
 ## Acknowledgements <a name="acknowledgements" />
 
 * [Gabriel Ryan a.k.a. s0lst1c3](https://github.com/s0lst1c3) for his tool [EAPHammer](https://github.com/s0lst1c3/eaphammer).
-* [OscarAkaElvis](https://github.com/OscarAkaElvis) for the Wi-Fi card recommendation. He also runs a wireless hacking suite called [airgeddon](https://github.com/v1s1t0r1sh3r3/airgeddon) that you should definitely check out if interested in Wi-Fi hacking.
+* [OscarAkaElvis](https://github.com/OscarAkaElvis) for the Wi-Fi card recommendation. He also runs a Wi-Fi hacking suite called [airgeddon](https://github.com/v1s1t0r1sh3r3/airgeddon) that you should definitely check out if interested in Wi-Fi hacking.
