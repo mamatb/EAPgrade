@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# wireless interface selection
+# wi-fi interface selection
 INTERFACE='wlan0'
 if [ -d '/sys/class/net/wlan1/' ]
 then
