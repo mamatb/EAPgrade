@@ -30,8 +30,8 @@ Also I've experienced some weird instability bugs after running the fake AP for 
 ## Installation <a name="installation" />
 
 ```bash
-git clone 'https://github.com/mamatb/eapgrade.git'
-bash ./eapgrade/EAPgrade.sh
+git clone 'https://github.com/mamatb/EAPgrade.git'
+bash './EAPgrade/EAPgrade.sh'
 ```
 ## Usage <a name="usage" />
 
