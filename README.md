@@ -59,4 +59,4 @@ No "Academic Purposes Only" bullshit in here, however please note that launching
 
 [Gabriel Ryan a.k.a. s0lst1c3](https://github.com/s0lst1c3) for his tool [EAPHammer](https://github.com/s0lst1c3/eaphammer).
 
-[OscarAkaElvis](https://github.com/OscarAkaElvis) for the ninja Wi-Fi card recommendation. He also runs a wireless hacking suite called [airgeddon](https://github.com/v1s1t0r1sh3r3/airgeddon) that you should definitely check out if interested in Wi-Fi hacking.
+[OscarAkaElvis](https://github.com/OscarAkaElvis) for the Wi-Fi card recommendation. He also runs a wireless hacking suite called [airgeddon](https://github.com/v1s1t0r1sh3r3/airgeddon) that you should definitely check out if interested in Wi-Fi hacking.
