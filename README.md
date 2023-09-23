@@ -53,7 +53,7 @@ You can SSH your Raspbian at 10.0.0.1 after accessing your fake AP network using
 
 ## Disclaimer <a name="disclaimer" />
 
-Please note that launching fake APs can be pretty noisy in certain environments, especially if using [KARMA/MANA](https://github.com/s0lst1c3/eaphammer/wiki/XI.-Using-Karma). So hack responsibly or something like that.
+Please note that launching fake APs can be pretty noisy in certain environments, especially if using [KARMA/MANA](https://github.com/s0lst1c3/eaphammer/wiki/XI.-Using-Karma).
 
 ## Acknowledgements <a name="acknowledgements" />
 
