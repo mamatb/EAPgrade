@@ -14,10 +14,10 @@
 # make use of 5ghz and channel bonding
 # exclude wlan* from networkmanager instead of modifying services
 
-readonly EAPGRADE_DIR="$(dirname "${0}" | xargs --delimiter='\n' realpath)"
+readonly EAPGRADE_DIR="$(realpath 'EAPgrade')"
 readonly EAPHAMMER_DIR='/opt/eaphammer'
 
-# permissions check
+# root access check
 if [ "${UID}" != '0' ]
 then
     echo '[!] root access needed in order to deal with services' >&2
@@ -55,8 +55,9 @@ echo '[+] moving files to "'"${EAPHAMMER_DIR}"'/"' >&2
 cp --force "${EAPGRADE_DIR}/eaphammer.sh" "${EAPGRADE_DIR}/eaphammer.service" "${EAPGRADE_DIR}/eaphammer_watchdog.sh" "${EAPGRADE_DIR}/eaphammer_watchdog.service" "${EAPHAMMER_DIR}/"
 
 # EAPHammer installation
-echo '[+] updating, installing dependencies and generating DH parameters. This is going to take a while, you can check the progress with "tail -f /tmp/EAPgrade.log"' >&2
-echo -e 'y\ny' | ./raspbian-setup &> '/tmp/EAPgrade.log'
+echo '[+] updating, installing dependencies and generating DH parameters'
+echo '[+] this is going to take a while, you can check the progress with "tail -f /tmp/EAPgrade.log"' >&2
+echo -e 'y\n' | ./raspbian-setup &> '/tmp/EAPgrade.log'
 
 # services setup
 echo '[+] disabling wpa_supplicant.service and dnsmasq.service so that they don'"'"'t interfere' >&2
