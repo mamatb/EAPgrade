@@ -8,7 +8,6 @@
 
 # TODO
 #
-# update hardware section
 # limit the maximum line length
 # grep interface names instead of assuming 'wlan0' and 'wlan1'
 # make use of 5ghz and channel bonding
@@ -86,7 +85,8 @@ python3 eaphammer --bootstrap --cn 'hotspot.eapgrade.org' --country 'ES' --state
 echo '[+] done, now the WPA/WPA2-MGT fake AP attack should launch automatically after booting. Recommended Next steps:' >&2
 echo '    - modify the credentials to access the fake AP network @ "'"${EAPHAMMER_DIR}"'/db/phase2.accounts"' >&2
 echo '    - modify EAPHammer parameters like the target ESSID @ "'"${EAPHAMMER_DIR}"'/eaphammer.sh"' >&2
-echo '    - delete "'"${EAPHAMMER_DIR}"'/certs/server/*", "'"${EAPHAMMER_DIR}"'/certs/ca/*" and "'"${EAPHAMMER_DIR}"'/certs/active/*"; then generate your own target certificate with "python3 '"${EAPHAMMER_DIR}"'/eaphammer --cert-wizard"' >&2
+echo '    - delete "'"${EAPHAMMER_DIR}"'/certs/server/*", "'"${EAPHAMMER_DIR}"'/certs/ca/*" and "'"${EAPHAMMER_DIR}"'/certs/active/*";'
+echo '      then generate your own target certificate with "python3 '"${EAPHAMMER_DIR}"'/eaphammer --cert-wizard"' >&2
 echo '    - check for captured credentials after each attack @ "'"${EAPHAMMER_DIR}"'/logs/hostapd-eaphammer.raw"' >&2
 
 exit 0
