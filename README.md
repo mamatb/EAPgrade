@@ -11,9 +11,9 @@
 
 ## What? <a name="what" />
 
-EAPgrade is a simple Bash script that upgrades your fresh Raspbian installation so that it launches WPA/WPA2-MGT fake AP attacks automatically after booting. In order to do so, it makes use of Gabriel Ryan's [EAPHammer](https://github.com/s0lst1c3/eaphammer) as a service. It also provides SSH access to administrate your Raspbian without needing to plug in keyboard and display, and disables a couple of services so that they don't interfere with the execution of EAPHammer.
+EAPgrade is a simple Bash script that upgrades your fresh Pi OS installation so that it launches WPA/WPA2-MGT fake AP attacks automatically after booting. In order to do so, it makes use of Gabriel Ryan's [EAPHammer](https://github.com/s0lst1c3/eaphammer) as a service. It also provides SSH access to administrate your Pi OS without needing to plug in keyboard and display, and disables a couple of services so that they don't interfere with the execution of EAPHammer.
 
-Bear in mind that you need a Wi-Fi card that supports Master mode for this attack to work. Also there are chances that the attack won't work if your Raspbian services have been modified since installation.
+Bear in mind that you need a Wi-Fi card that supports Master mode for this attack to work. Also there are chances that the attack won't work if your Pi OS services have been modified since installation.
 
 ## Why? <a name="why" />
 
@@ -42,7 +42,7 @@ INFO - done! Now the WPA/WPA2-MGT fake AP attack should launch automatically aft
     Modify the ESSID at "/opt/eaphammer/eaphammer.sh" so that it matches your target network
     Delete "/opt/eaphammer/certs/server/*", "/opt/eaphammer/certs/ca/*" and "/opt/eaphammer/certs/active/*"; and generate your own targeted certs by "python3 /opt/eaphammer/eaphammer --cert-wizard" (may need to install some Python 3 modules)
 ```
-You can SSH your Raspbian at 10.0.0.1 after accessing your fake AP network using the credentials at `/opt/eaphammer/db/phase2.accounts`. Sometimes dnsmasq won't properly serve an IP address for whatever reason, using a static IP has worked for me in these cases.
+You can SSH your Pi OS at 10.0.0.1 after accessing your fake AP network using the credentials at `/opt/eaphammer/db/phase2.accounts`. Sometimes dnsmasq won't properly serve an IP address for whatever reason, using a static IP has worked for me in these cases.
 
 ## My hardware <a name="my_hardware" />
 

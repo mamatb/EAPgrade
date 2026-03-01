@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# EAPgrade is a simple Bash script that upgrades your fresh Raspbian installation so that it launches WPA/WPA2-MGT fake AP attacks automatically after booting
+# EAPgrade is a simple Bash script that upgrades your fresh Pi OS installation so that it launches WPA/WPA2-MGT fake AP attacks automatically after booting
 #
 # author - mamatb (t.me/m_amatb)
 # location - https://github.com/mamatb/EAPgrade
@@ -9,7 +9,6 @@
 # TODO
 #
 # update hardware section
-# s/raspbian/raspberry pi os/
 # limit the maximum line length
 # grep interface names instead of assuming 'wlan0' and 'wlan1'
 # make use of 5ghz and channel bonding
@@ -73,7 +72,7 @@ echo 'INFO - enabling eaphammer_watchdog.service in order to restart EAPHammer w
 cp --force "${EAPHAMMER_DIR}/eaphammer_watchdog.service" '/lib/systemd/system/eaphammer_watchdog.service'
 systemctl --quiet enable 'eaphammer_watchdog.service'
 
-echo 'INFO - enabling ssh.service in order to administrate your Raspbian without needing to plug in keyboard and display' >&2
+echo 'INFO - enabling ssh.service in order to administrate your Pi OS without needing to plug in keyboard and display' >&2
 systemctl --quiet enable 'ssh.service'
 
 # EAPHammer users configuration
