@@ -54,6 +54,7 @@ cp --force "${EAPGRADE_DIR}/eaphammer.sh" "${EAPGRADE_DIR}/eaphammer.service" "$
 
 # EAPHammer installation
 echo '[+] installing EAPHammer, this is going to take a while (progress @ "tail -f /tmp/EAPgrade.log")' >&2
+sed --in-place '/python3-pywebcopy/d' "${EAPHAMMER_DIR}/raspbian-dependencies.txt"
 echo -e 'y\n' | ./raspbian-setup &> '/tmp/EAPgrade.log'
 
 # eaphammer.service activation
@@ -69,7 +70,7 @@ systemctl --quiet enable 'eaphammer_watchdog.service'
 chmod +x "${EAPHAMMER_DIR}/eaphammer_watchdog.sh"
 
 # ssh.service activation
-echo '[+] enabling ssh.service to administrate Pi OS from the local network' >&2
+echo '[+] enabling ssh.service to manage Pi OS from the local network' >&2
 systemctl --quiet enable 'ssh.service'
 
 # EAPHammer credentials configuration
