@@ -12,7 +12,6 @@
 # limit the maximum line length
 # grep interface names instead of assuming 'wlan0' and 'wlan1'
 # make use of 5ghz and channel bonding
-# exclude wlan* from networkmanager instead of modifying services
 
 readonly EAPGRADE_DIR="$(realpath 'EAPgrade')"
 readonly EAPHAMMER_DIR='/opt/eaphammer'
@@ -59,21 +58,17 @@ echo '[+] updating, installing dependencies and generating DH parameters'
 echo '[+] this is going to take a while, you can check the progress with "tail -f /tmp/EAPgrade.log"' >&2
 echo -e 'y\n' | ./raspbian-setup &> '/tmp/EAPgrade.log'
 
-# services setup
-echo '[+] disabling wpa_supplicant.service and dnsmasq.service so that they don'"'"'t interfere' >&2
-systemctl --quiet disable 'dnsmasq.service'
-systemctl --quiet disable 'wpa_supplicant.service'
-cp --force '/etc/dhcpcd.conf' '/etc/dhcpcd.conf.backup'
-echo 'nohook wpa_supplicant' >> '/etc/dhcpcd.conf'
-
+# eaphammer.service activation
 echo '[+] enabling eaphammer.service so that EAPHammer launches automatically after booting' >&2
 cp --force "${EAPHAMMER_DIR}/eaphammer.service" '/lib/systemd/system/eaphammer.service'
 systemctl --quiet enable 'eaphammer.service'
 
+# eaphammer_watchdog.service activation
 echo '[+] enabling eaphammer_watchdog.service in order to restart EAPHammer when unstable' >&2
 cp --force "${EAPHAMMER_DIR}/eaphammer_watchdog.service" '/lib/systemd/system/eaphammer_watchdog.service'
 systemctl --quiet enable 'eaphammer_watchdog.service'
 
+# ssh.service activation
 echo '[+] enabling ssh.service in order to administrate your Pi OS without needing to plug in keyboard and display' >&2
 systemctl --quiet enable 'ssh.service'
 

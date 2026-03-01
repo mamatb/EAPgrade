@@ -9,6 +9,7 @@ fi
 readonly INTERFACE
 
 # static ip configuration
+nmcli dev set "${INTERFACE}" managed no
 ip link set dev "${INTERFACE}" down
 ip address flush dev "${INTERFACE}"
 ip address add '10.0.0.1/24' broadcast '+' dev "${INTERFACE}"
