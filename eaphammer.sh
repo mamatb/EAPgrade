@@ -7,9 +7,9 @@ then
     INTERFACE='wlan1'
 fi
 readonly INTERFACE
+nmcli dev set "${INTERFACE}" managed no
 
 # static ip configuration
-nmcli dev set "${INTERFACE}" managed no
 ip link set dev "${INTERFACE}" down
 ip address flush dev "${INTERFACE}"
 ip address add '10.0.0.1/24' broadcast '+' dev "${INTERFACE}"
@@ -20,3 +20,4 @@ dnsmasq --interface="${INTERFACE}" --except-interface='lo' --bind-interfaces --d
 
 # eaphammer launch
 python3 /opt/eaphammer/eaphammer --interface "${INTERFACE}" --channel '1' --auth 'wpa-eap' --creds --hw-mode 'g' --essid 'EAPgrade' &>> '/opt/eaphammer/logs/hostapd-eaphammer.raw'
+
