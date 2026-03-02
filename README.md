@@ -35,7 +35,7 @@ bash './EAPgrade/EAPgrade.sh'
 ```
 ## Usage <a name="usage" />
 
-As the script says upon installation:
+As the script says after installation:
 ```
 [+] done, now the WPA/WPA2-MGT fake AP attack should launch automatically after booting. Recommended next steps:
     - modify the credentials to access the fake AP network @ "/opt/eaphammer/db/phase2.accounts"
