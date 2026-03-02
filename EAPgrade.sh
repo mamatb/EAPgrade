@@ -45,9 +45,9 @@ fi
 
 # Pi OS update and upgrade
 echo '[+] updating and upgrading Pi OS, this may take a while (progress @ "tail -f '"${EAPGRADE_LOG}"'")' >&2
-apt --yes update &> "${EAPGRADE_LOG}"
-apt --yes upgrade &> "${EAPGRADE_LOG}"
-apt --yes autoremove &> "${EAPGRADE_LOG}"
+DEBIAN_FRONTEND=noninteractive apt --yes update &> "${EAPGRADE_LOG}"
+DEBIAN_FRONTEND=noninteractive apt --yes upgrade &> "${EAPGRADE_LOG}"
+DEBIAN_FRONTEND=noninteractive apt --yes autoremove &> "${EAPGRADE_LOG}"
 
 # EAPHammer git clone
 echo '[+] cloning EAPHammer to "'"${EAPHAMMER_DIR}"'"' >&2
