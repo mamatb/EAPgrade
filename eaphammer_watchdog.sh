@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-readonly LOGFILE='/opt/eaphammer/logs/hostapd-eaphammer.raw'
 readonly ERROR_1='handle_probe_req'
 readonly ERROR_2='Failed to set beacon parameters'
+readonly LOGFILE='/opt/eaphammer/logs/hostapd-eaphammer.raw'
 readonly SERVICE='eaphammer.service'
 
 while true

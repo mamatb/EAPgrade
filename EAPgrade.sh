@@ -13,6 +13,7 @@
 # make use of 5ghz and channel bonding
 
 readonly EAPGRADE_DIR="$(realpath 'EAPgrade')"
+readonly EAPGRADE_LOG='/tmp/EAPgrade.log'
 readonly EAPHAMMER_DIR='/opt/eaphammer'
 
 # root access check
@@ -42,6 +43,12 @@ else
     echo '[+] git installation confirmed, proceeding' >&2
 fi
 
+# Pi OS update and upgrade
+echo '[+] updating and upgrading Pi OS, this may take a while (progress @ "tail -f '"${EAPGRADE_LOG}"'")' >&2
+apt --yes update &> "${EAPGRADE_LOG}"
+apt --yes upgrade &> "${EAPGRADE_LOG}"
+apt --yes autoremove &> "${EAPGRADE_LOG}"
+
 # EAPHammer git clone
 echo '[+] cloning EAPHammer to "'"${EAPHAMMER_DIR}"'"' >&2
 cd '/opt/'
@@ -53,9 +60,9 @@ echo '[+] moving files to "'"${EAPHAMMER_DIR}"'"' >&2
 cp --force "${EAPGRADE_DIR}/eaphammer.sh" "${EAPGRADE_DIR}/eaphammer.service" "${EAPGRADE_DIR}/eaphammer_watchdog.sh" "${EAPGRADE_DIR}/eaphammer_watchdog.service" "${EAPHAMMER_DIR}"
 
 # EAPHammer installation
-echo '[+] installing EAPHammer, this is going to take a while (progress @ "tail -f /tmp/EAPgrade.log")' >&2
+echo '[+] installing EAPHammer, this may take a while (progress @ "tail -f '"${EAPGRADE_LOG}"'")' >&2
 sed --in-place '/python3-pywebcopy/d' "${EAPHAMMER_DIR}/raspbian-dependencies.txt"
-echo -e 'y\n' | ./raspbian-setup &> '/tmp/EAPgrade.log'
+echo -e 'y\n' | ./raspbian-setup &> "${EAPGRADE_LOG}"
 
 # eaphammer.service activation
 echo '[+] enabling eaphammer.service to launch EAPHammer automatically after booting' >&2
