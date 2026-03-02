@@ -49,7 +49,7 @@ You can SSH your Pi OS at 10.0.0.1 after accessing the fake AP network using the
 ## My hardware <a name="my_hardware" />
 
 *  Raspberry Pi Zero 2 W, 4 CPU cores and 512MB of memory
-*  10000mAh power bank, enough juice to power the Pi Zero 2 W for +8 hours
+*  10000mAh power bank, enough juice to power the Pi Zero 2 W for ~12 hours
 *  Panda Wireless PAU07, a dual-band USB Wi-Fi card with the RT5572 chipset
 *  Termius app to check the attack progress through SSH using a smartphone
 

@@ -90,7 +90,7 @@ echo '[+] generating fake TLS certificate to use with EAPHammer' >&2
 python3 eaphammer --bootstrap --cn 'hotspot.eapgrade.org' --country 'ES' --state 'Madrid' --locale 'Madrid' --org 'eapgrade' --org-unit 'IT' --email 'administrator@eapgrade.org' &> '/dev/null'
 
 # final steps
-echo '[+] done, now the WPA/WPA2-MGT fake AP attack should launch automatically after booting. Recommended Next steps:' >&2
+echo '[+] done, now the WPA/WPA2-MGT fake AP attack should launch automatically after booting. Recommended next steps:' >&2
 echo '    - modify the credentials to access the fake AP network @ "'"${EAPHAMMER_DIR}"'/db/phase2.accounts"' >&2
 echo '    - modify EAPHammer parameters like the target ESSID @ "'"${EAPHAMMER_DIR}"'/eaphammer.sh"' >&2
 echo '    - delete "'"${EAPHAMMER_DIR}"'/certs/server/*", "'"${EAPHAMMER_DIR}"'/certs/ca/*" and "'"${EAPHAMMER_DIR}"'/certs/active/*";'
