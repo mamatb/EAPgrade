@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# EAPgrade is a simple Bash script that upgrades your fresh Pi OS installation so that it launches WPA/WPA2-MGT fake AP attacks automatically after booting
+# EAPgrade is a simple Bash script that upgrades your fresh Pi OS installation
+# so that it launches WPA/WPA2-MGT fake AP attacks automatically after booting
 #
 # author - mamatb (t.me/m_amatb)
 # location - https://github.com/mamatb/EAPgrade
@@ -8,7 +9,6 @@
 
 # TODO
 #
-# limit the maximum line length
 # grep interface names instead of assuming 'wlan0' and 'wlan1'
 # make use of 5ghz and channel bonding
 
@@ -44,10 +44,14 @@ else
 fi
 
 # Pi OS update and upgrade
-echo '[+] updating and upgrading Pi OS, this may take a while (progress @ "tail -f '"${EAPGRADE_LOG}"'")' >&2
-DEBIAN_FRONTEND=noninteractive apt --yes update &> "${EAPGRADE_LOG}"
-DEBIAN_FRONTEND=noninteractive apt --yes upgrade &> "${EAPGRADE_LOG}"
-DEBIAN_FRONTEND=noninteractive apt --yes autoremove &> "${EAPGRADE_LOG}"
+echo '[+] updating and upgrading Pi OS, this may take a while' >&2
+echo '    (progress available @ "tail -f '"${EAPGRADE_LOG}"'")' >&2
+apt --yes update &> "${EAPGRADE_LOG}"
+DEBIAN_FRONTEND='noninteractive' apt --yes \
+--option 'Dpkg::Options::="--force-confdef"' \
+--option 'Dpkg::Options::="--force-confold"' \
+upgrade &> "${EAPGRADE_LOG}"
+apt --yes autoremove &> "${EAPGRADE_LOG}"
 
 # EAPHammer git clone
 echo '[+] cloning EAPHammer to "'"${EAPHAMMER_DIR}"'"' >&2
@@ -57,22 +61,27 @@ cd "${EAPHAMMER_DIR}"
 
 # file movement
 echo '[+] moving files to "'"${EAPHAMMER_DIR}"'"' >&2
-cp --force "${EAPGRADE_DIR}/eaphammer.sh" "${EAPGRADE_DIR}/eaphammer.service" "${EAPGRADE_DIR}/eaphammer_watchdog.sh" "${EAPGRADE_DIR}/eaphammer_watchdog.service" "${EAPHAMMER_DIR}"
+cp --force "${EAPGRADE_DIR}/eaphammer.sh" "${EAPGRADE_DIR}/eaphammer.service" \
+"${EAPGRADE_DIR}/eaphammer_watchdog.sh" "${EAPGRADE_DIR}/eaphammer_watchdog.service" \
+"${EAPHAMMER_DIR}"
 
 # EAPHammer installation
-echo '[+] installing EAPHammer, this may take a while (progress @ "tail -f '"${EAPGRADE_LOG}"'")' >&2
+echo '[+] installing EAPHammer, this may take a while' >&2
+echo '    (progress available @ "tail -f '"${EAPGRADE_LOG}"'")' >&2
 sed --in-place '/python3-pywebcopy/d' "${EAPHAMMER_DIR}/raspbian-dependencies.txt"
 echo -e 'y\n' | ./raspbian-setup &> "${EAPGRADE_LOG}"
 
 # eaphammer.service activation
 echo '[+] enabling eaphammer.service to launch EAPHammer automatically after booting' >&2
-cp --force "${EAPHAMMER_DIR}/eaphammer.service" '/lib/systemd/system/eaphammer.service'
+cp --force "${EAPHAMMER_DIR}/eaphammer.service" \
+'/lib/systemd/system/eaphammer.service'
 systemctl --quiet enable 'eaphammer.service'
 chmod +x "${EAPHAMMER_DIR}/eaphammer.sh"
 
 # eaphammer_watchdog.service activation
 echo '[+] enabling eaphammer_watchdog.service to restart EAPHammer when unstable' >&2
-cp --force "${EAPHAMMER_DIR}/eaphammer_watchdog.service" '/lib/systemd/system/eaphammer_watchdog.service'
+cp --force "${EAPHAMMER_DIR}/eaphammer_watchdog.service" \
+'/lib/systemd/system/eaphammer_watchdog.service'
 systemctl --quiet enable 'eaphammer_watchdog.service'
 chmod +x "${EAPHAMMER_DIR}/eaphammer_watchdog.sh"
 
@@ -87,7 +96,14 @@ echo '[+] setting up credentials "EAPgrade:changeme" to access the fake AP netwo
 
 # EAPHammer certificate generation
 echo '[+] generating fake TLS certificate to use with EAPHammer' >&2
-python3 eaphammer --bootstrap --cn 'hotspot.eapgrade.org' --country 'ES' --state 'Madrid' --locale 'Madrid' --org 'eapgrade' --org-unit 'IT' --email 'administrator@eapgrade.org' &> '/dev/null'
+python3 eaphammer --bootstrap \
+--cn 'hotspot.eapgrade.org' \
+--country 'ES' \
+--state 'Madrid' \
+--locale 'Madrid' \
+--org 'eapgrade' \
+--org-unit 'IT' \
+--email 'administrator@eapgrade.org' &> '/dev/null'
 
 # final steps
 echo '[+] done, now the WPA/WPA2-MGT fake AP attack should launch automatically after booting. Recommended next steps:' >&2
