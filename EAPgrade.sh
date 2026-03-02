@@ -25,7 +25,7 @@ else
 fi
 
 # github access check
-if ! curl 'https://github.com' --max-time '4' &> '/dev/null'
+if ! curl --silent --output '/dev/null' --max-time '4' 'https://github.com'
 then
     echo '[!] internet access and name resolution needed to clone EAPHammer' >&2
     exit 1
