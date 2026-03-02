@@ -10,7 +10,6 @@
 # TODO
 #
 # grep interface names instead of assuming 'wlan0' and 'wlan1'
-# make use of 5ghz and channel bonding
 
 readonly EAPGRADE_DIR="$(realpath 'EAPgrade')"
 readonly EAPGRADE_LOG='/tmp/EAPgrade.log'
@@ -69,7 +68,8 @@ cp --force "${EAPGRADE_DIR}/eaphammer.sh" "${EAPGRADE_DIR}/eaphammer.service" \
 # EAPHammer installation
 echo '[+] installing EAPHammer, this may take a while' >&2
 echo '    (progress available @ "tail -f '"${EAPGRADE_LOG}"'")' >&2
-sed --in-place '/python3-pywebcopy/d' "${EAPHAMMER_DIR}/raspbian-dependencies.txt"
+pip3 install 'pywebcopy' --break-system-packages &> "${EAPGRADE_LOG}"
+sed --in-place '/pywebcopy/d' "${EAPHAMMER_DIR}/raspbian-dependencies.txt"
 echo -e 'y\n' | ./raspbian-setup &> "${EAPGRADE_LOG}"
 
 # eaphammer.service activation
