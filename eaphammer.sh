@@ -38,7 +38,7 @@ python3 /opt/eaphammer/eaphammer \
 --interface "${INTERFACE}" \
 --hw-mode "${HWMODE}" \
 --channel "${CHANNEL}" \
---creds \
+--essid 'EAPgrade' \
 --auth 'wpa-eap' \
---essid 'EAPgrade' &>> '/opt/eaphammer/logs/hostapd-eaphammer.raw'
+--creds &>> '/opt/eaphammer/logs/hostapd-eaphammer.raw'
 
