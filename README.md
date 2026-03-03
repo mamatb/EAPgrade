@@ -38,11 +38,11 @@ bash './EAPgrade/EAPgrade.sh'
 As the script says after installation:
 ```
 [+] done, now the WPA/WPA2-MGT fake AP attack should launch automatically after booting. Recommended next steps:
-    - modify the credentials to access the fake AP network @ "/opt/eaphammer/db/phase2.accounts"
-    - modify EAPHammer parameters like the target ESSID @ "/opt/eaphammer/eaphammer.sh"
-    - delete "/opt/eaphammer/certs/server/*", "/opt/eaphammer/certs/ca/*" and "/opt/eaphammer/certs/active/*";
-      then generate your own target certificate with "python3 /opt/eaphammer/eaphammer --cert-wizard"
-    - check for captured credentials after each attack @ "/opt/eaphammer/logs/hostapd-eaphammer.raw"
+    - modify the credentials to access the fake AP network @ /opt/eaphammer/db/phase2.accounts
+    - modify EAPHammer parameters like the target ESSID @ /opt/eaphammer/eaphammer.sh
+    - delete /opt/eaphammer/certs/server/*, /opt/eaphammer/certs/ca/* and /opt/eaphammer/certs/active/*;
+      then generate your own target certificate with 'python3 /opt/eaphammer/eaphammer --cert-wizard'
+    - check for captured credentials after each attack @ /opt/eaphammer/logs/hostapd-eaphammer.raw
 ```
 You can SSH your Pi OS at 10.0.0.1 after accessing the fake AP network using the credentials at `/opt/eaphammer/db/phase2.accounts`. Sometimes dnsmasq won't properly serve an IP address for whatever reason, using a static IP has worked for me in these cases.
 

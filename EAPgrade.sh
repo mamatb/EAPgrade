@@ -44,7 +44,7 @@ fi
 
 # Pi OS update and upgrade
 echo '[+] updating and upgrading Pi OS, this may take a while' >&2
-echo '    (progress available @ "tail -f '"${EAPGRADE_LOG}"'")' >&2
+echo "    (progress available @ 'tail -f ${EAPGRADE_LOG}')" >&2
 export DEBIAN_FRONTEND='noninteractive'
 apt --yes update &> "${EAPGRADE_LOG}"
 apt --yes \
@@ -54,20 +54,20 @@ upgrade &> "${EAPGRADE_LOG}"
 apt --yes autoremove &> "${EAPGRADE_LOG}"
 
 # EAPHammer git clone
-echo '[+] cloning EAPHammer to "'"${EAPHAMMER_DIR}"'"' >&2
+echo "[+] cloning EAPHammer to ${EAPHAMMER_DIR}" >&2
 cd '/opt/'
 git clone 'https://github.com/s0lst1c3/eaphammer.git' &> '/dev/null'
 cd "${EAPHAMMER_DIR}"
 
 # file movement
-echo '[+] moving files to "'"${EAPHAMMER_DIR}"'"' >&2
+echo "[+] moving files to ${EAPHAMMER_DIR}" >&2
 cp --force "${EAPGRADE_DIR}/eaphammer.sh" "${EAPGRADE_DIR}/eaphammer.service" \
 "${EAPGRADE_DIR}/eaphammer_watchdog.sh" "${EAPGRADE_DIR}/eaphammer_watchdog.service" \
 "${EAPHAMMER_DIR}"
 
 # EAPHammer installation
 echo '[+] installing EAPHammer, this may take a while' >&2
-echo '    (progress available @ "tail -f '"${EAPGRADE_LOG}"'")' >&2
+echo "    (progress available @ 'tail -f ${EAPGRADE_LOG}')" >&2
 pip3 install 'pywebcopy' --break-system-packages &> "${EAPGRADE_LOG}"
 sed --in-place '/pywebcopy/d' "${EAPHAMMER_DIR}/raspbian-dependencies.txt"
 echo -e 'y\n' | ./raspbian-setup &> "${EAPGRADE_LOG}"
@@ -91,7 +91,7 @@ echo '[+] enabling ssh.service to manage Pi OS from the local network' >&2
 systemctl --quiet enable 'ssh.service'
 
 # EAPHammer credentials configuration
-echo '[+] setting up credentials "EAPgrade:changeme" to access the fake AP network' >&2
+echo "[+] setting up credentials 'EAPgrade:changeme' to access the fake AP network" >&2
 ./ehdb --delete --delete-all
 ./ehdb --add --identity 'EAPgrade' --password 'changeme'
 
@@ -108,11 +108,11 @@ python3 eaphammer --bootstrap \
 
 # recommended next steps
 echo '[+] done, now the WPA/WPA2-MGT fake AP attack should launch automatically after booting. Recommended next steps:' >&2
-echo '    - modify the credentials to access the fake AP network @ "'"${EAPHAMMER_DIR}"'/db/phase2.accounts"' >&2
-echo '    - modify EAPHammer parameters like the target ESSID @ "'"${EAPHAMMER_DIR}"'/eaphammer.sh"' >&2
-echo '    - delete "'"${EAPHAMMER_DIR}"'/certs/server/*", "'"${EAPHAMMER_DIR}"'/certs/ca/*" and "'"${EAPHAMMER_DIR}"'/certs/active/*";' >&2
-echo '      then generate your own target certificate with "python3 '"${EAPHAMMER_DIR}"'/eaphammer --cert-wizard"' >&2
-echo '    - check for captured credentials after each attack @ "'"${EAPHAMMER_DIR}"'/logs/hostapd-eaphammer.raw"' >&2
+echo "    - modify the credentials to access the fake AP network @ ${EAPHAMMER_DIR}/db/phase2.accounts" >&2
+echo "    - modify EAPHammer parameters like the target ESSID @ ${EAPHAMMER_DIR}/eaphammer.sh" >&2
+echo "    - delete ${EAPHAMMER_DIR}/certs/server/*, ${EAPHAMMER_DIR}/certs/ca/* and ${EAPHAMMER_DIR}/certs/active/*;" >&2
+echo "      then generate your own target certificate with 'python3 ${EAPHAMMER_DIR}/eaphammer --cert-wizard'" >&2
+echo "    - check for captured credentials after each attack @ ${EAPHAMMER_DIR}/logs/hostapd-eaphammer.raw" >&2
 
 exit 0
 
