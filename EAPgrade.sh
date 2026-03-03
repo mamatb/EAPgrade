@@ -11,7 +11,7 @@
 #
 # grep interface names instead of assuming 'wlan0' and 'wlan1'
 
-readonly EAPGRADE_DIR="$(realpath 'EAPgrade')"
+readonly EAPGRADE_DIR="$(dirname "${0}" | realpath)"
 readonly EAPGRADE_LOG='/tmp/EAPgrade.log'
 readonly EAPHAMMER_DIR='/opt/eaphammer'
 
